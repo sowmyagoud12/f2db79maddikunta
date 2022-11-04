@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  - var televisionList = [{tele_name:"Sumsung", tele_size: "32 inch", tele_cost: 400}, {tele_name:"Sony", tele_size: "50 inch", tele_cost: 800},{tele_name:"LG", tele_size: "70 inch", tele_cost: 1000}]
+  div.container-fluid
+    div.row
+        each item, index in televisionList
+            div.col-sm-2(onclick=`buy(${index})`) Television Name: #{item["tele_name"]} <br> Telivision Size: #{item["tele_size"]} <br> Television Cost: #{item["tele_cost"]}
+
+
+
+
+
+  script.
+    function buy(index) {
+      alert("You purchased item "+ index)
+    }
