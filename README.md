@@ -6,4 +6,4 @@
 > Attributes: tele_name(string), tele_size(string), tele_cost(number)
 
 
-Render server [f2wb79maddikunta](https://f2wb79maddikunta.onrender.com/)
+Render server [f2db79maddikunta](https://f2db79maddikunta.onrender.com/)
