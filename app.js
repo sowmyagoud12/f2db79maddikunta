@@ -84,7 +84,7 @@ instance2.save( function(err,doc) {
 
   let instance3 = new 
 television({tele_name:"LG",  size:'75 inch', 
-cost:300}); 
+cost:700}); 
 instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("Third Television data saved") 

@@ -12,6 +12,19 @@ exports.television_list = async function(req, res) {
     }   
 }; 
  
+// VIEWS 
+// Handle a show all view 
+exports.television_view_all_Page = async function(req, res) { 
+    try{ 
+        theTelevision = await television.find(); 
+        res.render('television', { title: 'Television Search Results', results: theTelevision }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
+
 // for a specific Television. 
 exports.television_detail = function(req, res) { 
     res.send('NOT IMPLEMENTED: Television detail: ' + req.params.id); 
