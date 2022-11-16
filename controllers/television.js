@@ -76,8 +76,16 @@ exports.television_update_put = async function(req, res) {
         res.send(`{"error": ${err}: Update for id ${req.params.id} failed`); 
     } 
 }; 
-// Handle Television delete form on DELETE. 
-exports.television_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Television delete DELETE ' + req.params.id); 
+// Handle Television delete on DELETE. 
+exports.television_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await television.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
 }; 
  
