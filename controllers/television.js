@@ -89,3 +89,15 @@ exports.television_delete = async function(req, res) {
     } 
 }; 
  
+// Handle a show one view with id specified by query 
+exports.television_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await television.findById( req.query.id) 
+        res.render('televisiondetail',  { title: 'Television Detail', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
