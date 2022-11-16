@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class = 'container-fluid p-5 bg-info text-success text-center')= title 
  
   if (toShow == null) 
     h2 No instance to delete 
@@ -11,20 +11,22 @@ block content
     - let size = toShow.size 
     - let cost = toShow.cost 
     - let actionid = "/resource/television/" + televisionid 
+    
     script let actionid = "#{actionid}" 
-    div 
-      div.row 
-        div(class='televisionAttr mr-3') Television ID is: 
-        div #{televisionid} 
-      div.row 
-        div(class='televisionAttr mr-3') Television Type is: 
-        div #{tele_Name} 
-      div.row 
-        div(class='televisionAttr mr-3') Television Size is: 
-        div #{size} 
-      div.row 
-        div(class='televisionAttr mr-3') Television Cost is: 
-        div #{cost} 
+    div(class="container text-center")
+      div(class='justify-content-center p-2 text-center text-dark',style='background-color:#d0ff00')
+        div.row 
+          div(class='p-2 flex-fill televisionAttr mr-3') Television ID is: 
+          div #{televisionid} 
+        div.row 
+          div(class='p-2 flex-fill televisionAttr mr-3') Television Type is: 
+          div #{tele_Name} 
+        div.row 
+          div(class='p-2 flex-fill televisionAttr mr-3') Television Size is: 
+          div #{size} 
+        div.row 
+          div(class='p-2 flex-fill televisionAttr mr-3') Television Cost is: 
+          div #{cost} 
  
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
     button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
@@ -44,7 +46,7 @@ block content
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
         alert("Delete succeded") 
-        window.location.href='/costumes' 
+        window.location.href='/television' 
         // TODO handle body 
       }).catch((error) => { 
         // TODO handle error 
