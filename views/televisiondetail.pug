@@ -1,22 +1,24 @@
 extends layout 
  
 block content 
-  h1= title 
- 
-  - let telivisionid = toShow._id 
-  - let televisionName = toShow.tele_name 
-  - let televisionsize = toShow.size 
-  - let televisioncost = toShow.cost 
-  div 
-    div.row 
-      div(class='televisionAttr mr-3') Television ID is: 
-      div #{telivisionid} 
-    div.row 
-      div(class='televisionAttr mr-3') Television Type is: 
-      div #{televisionName} 
-    div.row 
-      div(class='televisionAttr mr-3') Television Size is: 
-      div #{televisionsize} 
-    div.row 
-      div(class='televisionAttr mr-3') Television Cost is: 
-      div #{televisioncost}
+  h1(class = 'container-fluid p-5 bg-warning text-danger text-center')= title 
+  if (toShow == null) 
+    h2 No instance to Update View 
+  else
+    - let telivisionid = toShow._id 
+    - let televisionName = toShow.tele_name 
+    - let televisionsize = toShow.size 
+    - let televisioncost = toShow.cost 
+    div(class='justify-content-center p-2 text-center text-dark',style='background-color:#d0ff00')
+      div.row 
+        div(class='televisionAttr mr-3') Television ID is: 
+        div #{telivisionid} 
+      div.row 
+        div(class='televisionAttr mr-3') Television Type is: 
+        div #{televisionName} 
+      div.row 
+        div(class='televisionAttr mr-3') Television Size is: 
+        div #{televisionsize} 
+      div.row 
+        div(class='televisionAttr mr-3') Television Cost is: 
+        div #{televisioncost}

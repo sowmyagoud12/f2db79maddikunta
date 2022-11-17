@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class = 'container-fluid p-5 bg-primary text-success text-center')= title 
   if (toShow == null) 
     h2 No instance to Update View 
   else 
@@ -10,10 +10,10 @@ block content
     - let size = toShow.size 
     - let cost = toShow.cost 
    
-    div.row(class='mb-2') 
-        div.mr-1 ID is #{id} 
+    div.row(class='d-flex justify-content-center p-2 bg-light text-center text-success') 
+        div.mr-1(class = "p-2 flex-fill") ID is #{id} 
     - let actionid = "/resource/television/" + id 
-    form(id='TelevisionForm', action= actionid, method="PUT") 
+    form(id='TelevisionForm',class='justify-content-center p-2 bg-light text-center text-dark', action= actionid, method="PUT") 
         div.form-group 
             label.televisionAttr(for='tele_name') Television Name 
             input#tele_name(type='text', name='tele_name', value= tele_name )
@@ -26,7 +26,7 @@ block content
             label.televisionAttr(for='cost') Television cost 
             input#cost(type='number', name='cost', value= cost ) 
         br
-        input(type="submit") 
+        input(class="btn btn-danger" type="submit") 
  
   script. 
     document.forms['TelevisionForm'].addEventListener('submit', (event) => { 

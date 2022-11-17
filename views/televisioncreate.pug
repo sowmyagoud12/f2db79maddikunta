@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class = 'container-fluid p-5 bg-success text-danger text-center')= title 
  
   form(id='TelevisionForm', action="/resource/television", method="POST") 
     div.form-group 
@@ -13,7 +13,7 @@ block content
     div.form-group 
         label.televisionAttr(for='cost') Television cost 
         input#cost(type='number', name='cost') 
-    input(type="submit") 
+    input(class="btn btn-info" type="submit") 
  
   script. 
     document.forms['TelevisionForm'].addEventListener('submit', (event) => { 
