@@ -3,16 +3,14 @@ extends layout
 block content
   h1= title
   - var televisionList = results
-  div.container-fluid
-    div.row
-        each item, index in televisionList
-            div.col-sm-2(onclick=`buy(${index})`) Television Name: #{item["tele_name"]} <br> Telivision Size: #{item["size"]} <br> Television Cost: #{item["cost"]}
-
-
-
-
-
-  script.
-    function buy(index) {
-      alert("You purchased item "+ index)
+  div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in televisionList  
+        - let destination = `dispatch(\"/television/update?id=${item._id}\")` 
+        div(class="row-sm-2", class="m-1") Item #{item.tele_name}(#{item.size}) is #{item.cost} 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+   
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
     }
