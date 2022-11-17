@@ -7,7 +7,7 @@ block content
     h2 No instance to delete 
   else 
     - let televisionid = toShow._id 
-    - let tele_Name = toShow.tele_Name 
+    - let tele_name = toShow.tele_name 
     - let size = toShow.size 
     - let cost = toShow.cost 
     - let actionid = "/resource/television/" + televisionid 
@@ -19,8 +19,8 @@ block content
           div(class='p-2 flex-fill televisionAttr mr-3') Television ID is: 
           div #{televisionid} 
         div.row 
-          div(class='p-2 flex-fill televisionAttr mr-3') Television Type is: 
-          div #{tele_Name} 
+          div(class='p-2 flex-fill televisionAttr mr-3') Television Name is: 
+          div #{tele_name} 
         div.row 
           div(class='p-2 flex-fill televisionAttr mr-3') Television Size is: 
           div #{size} 
