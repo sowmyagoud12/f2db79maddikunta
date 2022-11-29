@@ -2,15 +2,32 @@ extends layout
 
 block content
   h1= title
+  button.btn(class="btn-primary btn-sm ml-1", style="margin: 5px; width: 120px;", onclick=`dispatch(\"/television/create\")`) Create
   - var televisionList = results
   div(class="container-fluid") 
     div(class="row m-1") 
       each item in televisionList  
-        - let destination = `dispatch(\"/television/update?id=${item._id}\")` 
-        div(class="row-sm-2", class="m-1") Item #{item.tele_name}(#{item.size}) is #{item.cost} 
-          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+        div(class="row-sm-2", class="m-1") Item #{item.tele_name}(#{item.size}) is #{item.cost}
+          button.btn(class="btn-success btn-sm ml-1", style="margin: 5px; width: 120px;", onclick=`dispatch(\"/television/detail?id=${item._id}\")`) View
+          button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 120px;", onclick= `dispatch(\"/television/update?id=${item._id}\")`) Update
+          button.btn(class="btn-danger btn-sm ml-1", style="margin: 5px; width: 120px;", onclick= `dispatch(\"/television/delete?id=${item._id}\")`) Delete 
    
   script. 
+    function buy(index) {
+      alert("You purchased item " + index);
+    }
     function dispatch(path){ 
       window.location.href=path 
     }
+    passport.use(new LocalStrategy(function(username, password, done) { 
+            Account.findOne({ username: username }, function (err, user) { 
+            if (err) { return done(err); } 
+            if (!user) { 
+                return done(null, false, { message: 'Incorrect username.' }); 
+            }
+            if (!user.validPassword(password)) { 
+                return done(null, false, { message: 'Incorrect password.' }); 
+            }
+            return done(null, user); 
+          }); 
+      }));

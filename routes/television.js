@@ -23,5 +23,5 @@ router.get('/create',secured, television_controlers.television_create_Page);
 /* GET create update page */ 
 router.get('/update',secured, television_controlers.television_update_Page);
 /* GET delete costume page */ 
-router.get('/delete', television_controlers.television_delete_Page); 
+router.get('/delete',secured, television_controlers.television_delete_Page); 
 module.exports = router; 
